@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>紹介 | Sinna Games</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div id="header"></div>
+        <script>
+          fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById("header").innerHTML = data;
+            });
+        </script>
+      </header>
+  <main>
+    <div class="content-wrapper">
+        <h1>チャンネルでの活動</h1>
+        <p>　このチャンネルではこのチャンネルでは、主にゲームのプレイ動画を投稿しています。プレイ動画は声を入れず、淡々と進めて編集もほとんどせずに出しています。たまに編集多めの動画や、機械音声を使用した実況動画なども出します。また、たまにライブ配信を行ったりゲーム以外の動画も投稿します。</p>
+    <h2>チャンネルの変遷、現在</h2>
+        <p>　このチャンネルは2016年に開設されてから現在まで多くの動画を投稿してきました。始めの頃は主にマインクラフトの動画を投稿していました。その後、エミュレータなどでレトロゲームをプレイしたりPCゲームなどのプレイ動画を投稿しました。ゲーム現在では様々なジャンルのゲームのプレイ動画を投稿しています。最近ではWiiやWiiU、Switckなどの任天堂の作品を多く遊ばせてもらってます。なかでもWii Partyなどのパーティ系はよく投稿しています。</p>
+    <h1>プレイしたゲーム一覧</h1>
+        <a href="games.html">
+        <p>ゲーム一覧へ</p>
+    </div>
+  </main>
+</body>
+</html>

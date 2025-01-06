@@ -1,0 +1,167 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+  }
+  
+  /* ヘッダー */
+  header {
+    background-color: #008080;
+    color: white;
+  }
+  
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #005959;
+  }
+  
+  .youtube-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .ch-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .header-top a {
+    margin: 0;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  
+  .header-bottom {
+    background-color: #026080;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+  }
+  
+  .header-bottom a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .header-bottom a:hover {
+    text-decoration: underline;
+  }
+  
+  /* メインゾーン */
+  main {
+    display: flex;
+    justify-content: center;
+    background-color: #87CEFA; /* 背景色（左右の余白部分） */
+    padding: 20px 0;
+  }
+  
+  .content-wrapper {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  section {
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  h2 {
+    font-size: 20px;
+    color: #333;
+  }
+  h3 {
+    font-size: 18px;
+    color: #333;
+  }
+  /* コンテナ全体 */
+.container {
+  display: flex;
+  flex-direction: row;
+  height:auto;
+}
+
+/* 検索バー */
+#search-bar {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 1000px;
+  width: 20%;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* ゲーム一覧 */
+#game-list {
+  width: 100%;
+  background-color: White;
+  padding: 10px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+#game-list h3 {
+  margin-top: 0;
+}
+
+#games li {
+  list-style-type: none;
+  margin: 10px 0;
+  cursor: pointer;
+  color: #007bff;
+}
+
+#games li:hover {
+  text-decoration: underline;
+}
+
+/* ゲーム詳細（メインコンテンツ） */
+#game-details {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  margin: 10%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#game-details img {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+#game-details a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+#game-details a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}

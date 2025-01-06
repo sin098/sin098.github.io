@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム一覧</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 共通ヘッダー -->
+  <header>
+    <div id="header"></div>
+    <script>
+      fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header").innerHTML = data;
+        });
+    </script>
+  </header>
+
+  
+  <div class="container">
+    <main id="game-details">
+      <!-- ゲームの詳細表示領域 -->
+      <h2 id="game-title"></h2>
+      <p id="game-description"></p>
+    </main>
+      <!-- 検索バー -->
+      <aside id="search-bar">
+          <input type="text" id="search" placeholder="ゲームを検索...">
+          <button onclick="searchGames()">検索</button>
+
+
+      <!-- ゲーム一覧（サイドバー） -->
+      <div id="game-list">
+          <h3>ゲーム一覧</h3>
+          <ul id="games">
+              <!-- ゲームリストはJavaScriptで挿入 -->
+          </ul>
+        </div>
+      </aside>
+
+    <!-- メインコンテンツ -->
+
+
+  </div>
+
+  <script>
+      // ゲームデータの仮配列 (ID・名前・説明)
+      const games = [
+    {
+        id: 1,
+        name: "Minecraft",
+        description: "Minecraftの説明です。",
+        image: "minecraft-logo.png", // 画像URL
+        link: "https://example.com/gameA" // ゲームの詳細リンク
+    },
+    {
+        id: 2,
+        name: "ゲームB",
+        description: "ゲームBの説明です。",
+        image: "images/gameB.png",
+        link: "https://example.com/gameB"
+    },
+    {
+        id: 3,
+        name: "ゲームC",
+        description: "ゲームCの説明です。",
+        image: "images/gameC.png",
+        link: "https://example.com/gameC"
+    }
+];
+
+      // ゲーム一覧を表示する関数
+      function loadGames() {
+          const gameList = document.getElementById("games");
+          games.forEach(game => {
+              const li = document.createElement("li");
+              li.textContent = game.name;
+              li.onclick = () => showGameDetails(game);
+              gameList.appendChild(li);
+          });
+      }
+
+      // ゲーム詳細を表示する関数
+      function showGameDetails(game) {
+    // ゲームのタイトル、説明を表示
+    document.getElementById("game-title").textContent = game.name;
+    document.getElementById("game-description").textContent = game.description;
+
+    // 画像を動的に表示
+    const img = document.createElement("img");
+    img.src = game.image;
+    img.alt = game.name;
+    img.style.width = "300px"; // 画像のサイズ指定
+
+    // ゲーム詳細エリアに画像を表示
+    const gameDetails = document.getElementById("game-details");
+    gameDetails.innerHTML = ""; // 前の情報をクリア
+
+    const title = document.createElement("h2");
+    title.textContent = game.name;
+
+    const description = document.createElement("p");
+    description.textContent = game.description;
+
+    gameDetails.appendChild(img);
+    gameDetails.appendChild(title);
+    gameDetails.appendChild(description);
+
+    // 外部リンクを表示
+    const link = document.createElement("a");
+    link.href = game.link;
+    link.textContent = "詳細を見る";
+    link.target = "_blank";
+    gameDetails.appendChild(link);
+}
+
+
+      // 検索機能
+      function searchGames() {
+          const query = document.getElementById("search").value.toLowerCase();
+          const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+          const gameList = document.getElementById("games");
+          gameList.innerHTML = ""; // 一覧をクリア
+          filteredGames.forEach(game => {
+              const li = document.createElement("li");
+              li.textContent = game.name;
+              li.onclick = () => showGameDetails(game);
+              gameList.appendChild(li);
+          });
+      }
+
+      // ページ読み込み時にゲーム一覧を表示
+      window.onload = () => {
+          loadGames();
+          fetch("header.html") // ヘッダーの読み込み
+              .then(response => response.text())
+              .then(data => document.getElementById("header").innerHTML = data);
+      };
+  </script>
+</body>
+</html>
